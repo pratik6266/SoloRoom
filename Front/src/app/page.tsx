@@ -4,7 +4,7 @@ import FeatureSection from "@/components/base/FeatureSection";
 import UserReviews from "@/components/base/UserReviews";
 import Footer from "@/components/base/Footer";
 import { getServerSession } from "next-auth";
-import { authOption, CustomSession } from "./api/auth/[...nextauth}/options";
+import { authOption, CustomSession } from "./api/auth/[...nextauth]/options";
 
 export default async function LandingPage() {
 

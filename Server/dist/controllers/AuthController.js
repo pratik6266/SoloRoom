@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import prisma from "../config/db.config.js";
+import 'dotevn/config';
 class AuthController {
     static async login(req, res) {
         try {
@@ -19,7 +20,7 @@ class AuthController {
                 email: body.email,
                 id: findUser.id,
             };
-            const token = jwt.sign(JWTPayload, 'secret', {
+            const token = jwt.sign(JWTPayload, process.env.JWT_SECERT, {
                 expiresIn: "365d",
             });
             res.json({

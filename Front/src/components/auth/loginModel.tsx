@@ -10,15 +10,15 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import Image from "next/image";
-// import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { DialogDescription } from "@radix-ui/react-dialog";
 
-// const handleGoogleLogin = async () => {
-//   signIn("google", {
-//     redirect: true,
-//     callbackUrl: "/",
-//   });
-// };
+const handleGoogleLogin = async () => {
+  signIn("google", {
+    redirect: true,
+    callbackUrl: "/",
+  });
+};
 
 export default function LoginModal() {
   return (
@@ -34,7 +34,7 @@ export default function LoginModal() {
             conversations in seconds.
           </DialogDescription>
         </DialogHeader>
-        <Button variant="outline">
+        <Button variant="outline" onClick={handleGoogleLogin}>
           <Image
             src="/images/google.png"
             className=" mr-4"
