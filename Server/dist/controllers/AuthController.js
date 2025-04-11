@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import prisma from "../config/db.config.js";
-import 'dotevn/config';
+import 'dotenv/config';
 class AuthController {
     static async login(req, res) {
         try {
