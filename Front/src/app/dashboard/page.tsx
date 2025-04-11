@@ -9,6 +9,7 @@ const page = async () => {
 
   return (
     <div>
+      <p>{JSON.stringify(session)}</p>
       <DashNav name={session?.user?.name ?? ''} image={session?.user?.image ?? ''}/>
     </div>
   )
