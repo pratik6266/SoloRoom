@@ -9,7 +9,7 @@ const page = async () => {
 
   return (
     <div>
-      <DashNav name={session?.user?.name || 'Guest'} image={session?.user?.image || '/default-image.png'}/>
+      <DashNav name={session?.user?.name ?? ''} image={session?.user?.image ?? ''}/>
     </div>
   )
 }
