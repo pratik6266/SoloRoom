@@ -5,6 +5,8 @@ import { getServerSession } from 'next-auth'
 import CreateChat from '@/components/groupChat/CreateChat'
 import { fetchChatGroup } from '@/fetch/groupFetch'
 import GroupChatCard from '@/components/groupChat/GroupChatCard'
+import Link from 'next/link'
+import { APP_URL } from '@/lib/apiEndPoints'
 
 const page = async () => {
 
@@ -19,12 +21,17 @@ const page = async () => {
           {session?.user && <CreateChat user={session.user}/>}
         </div>
 
+
         <div className="grid ml-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {group.length > 0 &&
-            group.map((item, index) => (
-              <GroupChatCard group={item} key={index} user={session!.user!} />
-            ))}
-        </div>
+        {group.length > 0 &&
+          group.map((item, index) => (
+            <Link href={`${APP_URL}/chat/${item.id}`} key={index} legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <GroupChatCard group={item} key={index} user={session!.user!} />
+              </a>
+            </Link>
+          ))}
+      </div>
 
 
       </div>

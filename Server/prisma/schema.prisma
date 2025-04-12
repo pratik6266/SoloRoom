@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./node_modules/@prisma/client"
 }
 
 datasource db {
@@ -31,7 +30,7 @@ model ChatGroup {
   created_at DateTime     @default(now())
   updated_at DateTime     @updatedAt
   GroupUsers GroupUsers[] @relation("chatGroupUsers")
-  chats      Chats[]      @relation("chatsOfGroup")
+  chats      Chats[]      @relation("chatsOfGroup") 
 
   @@index([user_id, created_at])
   @@map("chat_groups")
@@ -49,7 +48,7 @@ model GroupUsers {
 
 model Chats {
   id         String    @id @default(uuid()) @db.Uuid
-  group      ChatGroup @relation("chatsOfGroup", fields: [group_id], references: [id], onUpdate: Cascade)
+  group      ChatGroup @relation("chatsOfGroup", fields: [group_id], references: [id], onDelete: Cascade)
   group_id   String    @db.Uuid
   message    String?
   name       String

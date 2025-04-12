@@ -24,8 +24,6 @@ export const authOption: AuthOptions = {
   callbacks:{
     async signIn ({ user, account }: {user:CustomUser, account: Account | null}){
       try {
-        console.log("The Use data is: ", user);
-        console.log("The account is: ", account);
 
         const payload = {
           email: user.email,
