@@ -7,6 +7,7 @@ import { fetchChatGroup } from '@/fetch/groupFetch'
 import GroupChatCard from '@/components/groupChat/GroupChatCard'
 import Link from 'next/link'
 import { APP_URL } from '@/lib/apiEndPoints'
+import Image from 'next/image'
 
 const page = async () => {
 
@@ -29,10 +30,16 @@ const page = async () => {
               <a target="_blank" rel="noopener noreferrer">
                 <GroupChatCard group={item} key={index} user={session!.user!} />
               </a>
-            </Link>
+          </Link>
           ))}
-      </div>
+        </div>
 
+        {group.length === 0 && 
+          <div className='flex flex-col items-center justify-center'>
+            <p className='text-4xl inline-block font-bold '>No Chat Group</p>
+            <Image src='/images/conversation.svg' alt='' width={700} height={700}  />
+          </div>
+        }
 
       </div>
     </div>
