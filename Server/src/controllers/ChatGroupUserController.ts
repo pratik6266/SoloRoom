@@ -16,7 +16,7 @@ class ChatGroupUserController {
         },
       });
 
-      res.json({ message: "Date fetched successfully!", data: users });
+      res.json({ message: "Data fetched successfully!", data: users });
       return;
     } catch (error) {
       res
