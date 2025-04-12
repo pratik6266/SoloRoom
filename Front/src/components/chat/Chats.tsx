@@ -35,7 +35,7 @@ export default function Chats({
     return () => {
       socket.close();
     };
-  });
+  }, [socket]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
