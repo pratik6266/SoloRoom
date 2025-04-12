@@ -13,7 +13,6 @@ type GroupChatUserType = {
   name: string;
   group_id: string;
   created_at: string;
-  isOnline?: boolean;
 };
 
 type MessageType = {
