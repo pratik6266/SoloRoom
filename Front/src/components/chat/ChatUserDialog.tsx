@@ -37,7 +37,7 @@ export default function ChatUserDialog({
         setOpen(false);
       }
     }
-  }, []);
+  });
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();

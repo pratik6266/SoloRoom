@@ -46,7 +46,7 @@ export default function EditGroupChat({
   useEffect(() => {
     setValue("title", group.title);
     setValue("passcode", group.passcode);
-  }, [group]);
+  }, [group, setValue]);
 
   const onSubmit = async (payload: createChatSchemaType) => {
     // console.log("The payload is", payload);

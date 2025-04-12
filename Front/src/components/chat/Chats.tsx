@@ -24,10 +24,10 @@ export default function Chats({
       room: group.id,
     };
     return socket.connect();
-  }, []);
+  }, [group.id]);
+
   useEffect(() => {
     socket.on("message", (data: MessageType) => {
-      console.log("The message is", data);
       setMessages((prevMessages) => [...prevMessages, data]);
       scrollToBottom();
     });
@@ -35,7 +35,8 @@ export default function Chats({
     return () => {
       socket.close();
     };
-  }, []);
+  });
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
